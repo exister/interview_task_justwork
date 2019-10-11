@@ -1,0 +1,96 @@
+- model: pages.page
+  pk: 1
+  fields:
+    title: Page 1
+- model: pages.page
+  pk: 2
+  fields:
+    title: Page 2
+- model: pages.page
+  pk: 3
+  fields:
+    title: Page 3
+- model: pages.page
+  pk: 4
+  fields:
+    title: Page 4
+- model: pages.content
+  pk: 6
+  fields:
+    polymorphic_ctype:
+    - pages
+    - video
+    title: Video 1
+    counter: 0
+- model: pages.content
+  pk: 7
+  fields:
+    polymorphic_ctype:
+    - pages
+    - audio
+    title: Audio 1
+    counter: 0
+- model: pages.content
+  pk: 8
+  fields:
+    polymorphic_ctype:
+    - pages
+    - text
+    title: Text 1
+    counter: 0
+- model: pages.video
+  pk: 6
+  fields:
+    video_file_url: http://example.com
+    subtitles_file_url: http://example.com
+- model: pages.audio
+  pk: 7
+  fields:
+    audio_file_url: http://example.com
+    bitrate: 192
+- model: pages.text
+  pk: 8
+  fields:
+    content: Text
+- model: pages.pagecontent
+  pk: 4
+  fields:
+    page: 1
+    content: 8
+    order: 1
+- model: pages.pagecontent
+  pk: 5
+  fields:
+    page: 1
+    content: 6
+    order: 2
+- model: pages.pagecontent
+  pk: 6
+  fields:
+    page: 4
+    content: 7
+    order: 1
+- model: pages.pagecontent
+  pk: 7
+  fields:
+    page: 3
+    content: 8
+    order: 1
+- model: pages.pagecontent
+  pk: 8
+  fields:
+    page: 2
+    content: 8
+    order: 1
+- model: pages.pagecontent
+  pk: 9
+  fields:
+    page: 2
+    content: 7
+    order: 2
+- model: pages.pagecontent
+  pk: 10
+  fields:
+    page: 2
+    content: 6
+    order: 3

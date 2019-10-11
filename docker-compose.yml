@@ -1,0 +1,34 @@
+version: '2.1'
+
+services:
+  runserver:
+    image: justwork/cms:latest
+    build: .
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+
+  autotests:
+    image: justwork/cms:latest
+    build: .
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    command: pytest
+
+  db:
+    image: postgres:11-alpine
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+
+volumes:
+  pg_data:
+    driver: local
